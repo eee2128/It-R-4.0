@@ -1,0 +1,711 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05041F442E6B6DDA00F38D06 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 05041F432E6B6DDA00F38D06 /* FirebaseAuth */; };
+		0530489F2E5E2BBB004C972B /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = 0530489E2E5E2BBB004C972B /* FirebaseAI */; };
+		053048A12E5E2BBB004C972B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 053048A02E5E2BBB004C972B /* FirebaseCore */; };
+		053048A32E5E2BBB004C972B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 053048A22E5E2BBB004C972B /* FirebaseFirestore */; };
+		053048A52E5E2BBB004C972B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 053048A42E5E2BBB004C972B /* FirebaseStorage */; };
+		054A883E2E5E0C2900B3BE0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 054A883D2E5E0C2900B3BE0E /* Assets.xcassets */; };
+		055B96BA2E5E59A6007981F2 /* Coustard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055B96B82E5E59A6007981F2 /* Coustard-Regular.ttf */; };
+		055B96BB2E5E59A6007981F2 /* Coustard-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055B96B72E5E59A6007981F2 /* Coustard-Black.ttf */; };
+		05B664F72E5DFE6F00FB4FFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05B664E62E5DFE6F00FB4FFE /* README.md */; };
+		05B664F82E5DFE6F00FB4FFE /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664F12E5DFE6F00FB4FFE /* LoadingView.swift */; };
+		05B664F92E5DFE6F00FB4FFE /* FeedbackSubmittedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664ED2E5DFE6F00FB4FFE /* FeedbackSubmittedView.swift */; };
+		05B664FA2E5DFE6F00FB4FFE /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664F22E5DFE6F00FB4FFE /* PreviewView.swift */; };
+		05B664FB2E5DFE6F00FB4FFE /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664EC2E5DFE6F00FB4FFE /* ExportView.swift */; };
+		05B664FC2E5DFE6F00FB4FFE /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664F02E5DFE6F00FB4FFE /* LaunchView.swift */; };
+		05B664FD2E5DFE6F00FB4FFE /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664EE2E5DFE6F00FB4FFE /* FeedbackView.swift */; };
+		05B664FE2E5DFE6F00FB4FFE /* MIDIFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664E42E5DFE6F00FB4FFE /* MIDIFormData.swift */; };
+		05B664FF2E5DFE6F00FB4FFE /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664F32E5DFE6F00FB4FFE /* WelcomeView.swift */; };
+		05B665002E5DFE6F00FB4FFE /* GenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664EF2E5DFE6F00FB4FFE /* GenerateView.swift */; };
+		05B665012E5DFE6F00FB4FFE /* MIDIStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664E32E5DFE6F00FB4FFE /* MIDIStudioApp.swift */; };
+		05B665022E5DFE6F00FB4FFE /* BottomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B664E92E5DFE6F00FB4FFE /* BottomTabView.swift */; };
+		05F0118E2E6CD37400125D56 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05F0118D2E6CD37400125D56 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05B664C62E5DFE1600FB4FFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05B664AB2E5DFE1500FB4FFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05B664B22E5DFE1500FB4FFE;
+			remoteInfo = "MIDI Studio";
+		};
+		05B664D02E5DFE1600FB4FFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05B664AB2E5DFE1500FB4FFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05B664B22E5DFE1500FB4FFE;
+			remoteInfo = "MIDI Studio";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		054A883D2E5E0C2900B3BE0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		055B96B72E5E59A6007981F2 /* Coustard-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Coustard-Black.ttf"; sourceTree = "<group>"; };
+		055B96B82E5E59A6007981F2 /* Coustard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Coustard-Regular.ttf"; sourceTree = "<group>"; };
+		05B664B32E5DFE1500FB4FFE /* MIDI Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MIDI Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B664C52E5DFE1600FB4FFE /* MIDI StudioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MIDI StudioTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B664CF2E5DFE1600FB4FFE /* MIDI StudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MIDI StudioUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B664E32E5DFE6F00FB4FFE /* MIDIStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIStudioApp.swift; sourceTree = "<group>"; };
+		05B664E42E5DFE6F00FB4FFE /* MIDIFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIFormData.swift; sourceTree = "<group>"; };
+		05B664E62E5DFE6F00FB4FFE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		05B664E72E5DFE6F00FB4FFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05B664E92E5DFE6F00FB4FFE /* BottomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabView.swift; sourceTree = "<group>"; };
+		05B664EC2E5DFE6F00FB4FFE /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
+		05B664ED2E5DFE6F00FB4FFE /* FeedbackSubmittedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSubmittedView.swift; sourceTree = "<group>"; };
+		05B664EE2E5DFE6F00FB4FFE /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		05B664EF2E5DFE6F00FB4FFE /* GenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateView.swift; sourceTree = "<group>"; };
+		05B664F02E5DFE6F00FB4FFE /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		05B664F12E5DFE6F00FB4FFE /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		05B664F22E5DFE6F00FB4FFE /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		05B664F32E5DFE6F00FB4FFE /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		05F0118D2E6CD37400125D56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05B664B02E5DFE1500FB4FFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				053048A12E5E2BBB004C972B /* FirebaseCore in Frameworks */,
+				05041F442E6B6DDA00F38D06 /* FirebaseAuth in Frameworks */,
+				053048A52E5E2BBB004C972B /* FirebaseStorage in Frameworks */,
+				0530489F2E5E2BBB004C972B /* FirebaseAI in Frameworks */,
+				053048A32E5E2BBB004C972B /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B664C22E5DFE1600FB4FFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B664CC2E5DFE1600FB4FFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		055B96B92E5E59A6007981F2 /* Fonts 2 */ = {
+			isa = PBXGroup;
+			children = (
+				055B96B72E5E59A6007981F2 /* Coustard-Black.ttf */,
+				055B96B82E5E59A6007981F2 /* Coustard-Regular.ttf */,
+			);
+			path = "Fonts 2";
+			sourceTree = "<group>";
+		};
+		05B664AA2E5DFE1500FB4FFE = {
+			isa = PBXGroup;
+			children = (
+				05B664B42E5DFE1500FB4FFE /* Products */,
+				05B664E32E5DFE6F00FB4FFE /* MIDIStudioApp.swift */,
+				05B664E52E5DFE6F00FB4FFE /* Models */,
+				05B664E62E5DFE6F00FB4FFE /* README.md */,
+				05B664E82E5DFE6F00FB4FFE /* Supporting Files */,
+				05B664F42E5DFE6F00FB4FFE /* Views */,
+				054A883D2E5E0C2900B3BE0E /* Assets.xcassets */,
+				055B96B92E5E59A6007981F2 /* Fonts 2 */,
+				05F0118D2E6CD37400125D56 /* GoogleService-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		05B664B42E5DFE1500FB4FFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05B664B32E5DFE1500FB4FFE /* MIDI Studio.app */,
+				05B664C52E5DFE1600FB4FFE /* MIDI StudioTests.xctest */,
+				05B664CF2E5DFE1600FB4FFE /* MIDI StudioUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05B664E52E5DFE6F00FB4FFE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				05B664E42E5DFE6F00FB4FFE /* MIDIFormData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		05B664E82E5DFE6F00FB4FFE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05B664E72E5DFE6F00FB4FFE /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05B664EB2E5DFE6F00FB4FFE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				05B664E92E5DFE6F00FB4FFE /* BottomTabView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		05B664F42E5DFE6F00FB4FFE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05B664EB2E5DFE6F00FB4FFE /* Components */,
+				05B664EC2E5DFE6F00FB4FFE /* ExportView.swift */,
+				05B664ED2E5DFE6F00FB4FFE /* FeedbackSubmittedView.swift */,
+				05B664EE2E5DFE6F00FB4FFE /* FeedbackView.swift */,
+				05B664EF2E5DFE6F00FB4FFE /* GenerateView.swift */,
+				05B664F02E5DFE6F00FB4FFE /* LaunchView.swift */,
+				05B664F12E5DFE6F00FB4FFE /* LoadingView.swift */,
+				05B664F22E5DFE6F00FB4FFE /* PreviewView.swift */,
+				05B664F32E5DFE6F00FB4FFE /* WelcomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05B664B22E5DFE1500FB4FFE /* MIDI Studio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B664D92E5DFE1600FB4FFE /* Build configuration list for PBXNativeTarget "MIDI Studio" */;
+			buildPhases = (
+				05B664AF2E5DFE1500FB4FFE /* Sources */,
+				05B664B02E5DFE1500FB4FFE /* Frameworks */,
+				05B664B12E5DFE1500FB4FFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MIDI Studio";
+			packageProductDependencies = (
+				0530489E2E5E2BBB004C972B /* FirebaseAI */,
+				053048A02E5E2BBB004C972B /* FirebaseCore */,
+				053048A22E5E2BBB004C972B /* FirebaseFirestore */,
+				053048A42E5E2BBB004C972B /* FirebaseStorage */,
+				05041F432E6B6DDA00F38D06 /* FirebaseAuth */,
+			);
+			productName = "MIDI Studio";
+			productReference = 05B664B32E5DFE1500FB4FFE /* MIDI Studio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05B664C42E5DFE1600FB4FFE /* MIDI StudioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B664DC2E5DFE1600FB4FFE /* Build configuration list for PBXNativeTarget "MIDI StudioTests" */;
+			buildPhases = (
+				05B664C12E5DFE1600FB4FFE /* Sources */,
+				05B664C22E5DFE1600FB4FFE /* Frameworks */,
+				05B664C32E5DFE1600FB4FFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05B664C72E5DFE1600FB4FFE /* PBXTargetDependency */,
+			);
+			name = "MIDI StudioTests";
+			packageProductDependencies = (
+			);
+			productName = "MIDI StudioTests";
+			productReference = 05B664C52E5DFE1600FB4FFE /* MIDI StudioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		05B664CE2E5DFE1600FB4FFE /* MIDI StudioUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B664DF2E5DFE1600FB4FFE /* Build configuration list for PBXNativeTarget "MIDI StudioUITests" */;
+			buildPhases = (
+				05B664CB2E5DFE1600FB4FFE /* Sources */,
+				05B664CC2E5DFE1600FB4FFE /* Frameworks */,
+				05B664CD2E5DFE1600FB4FFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05B664D12E5DFE1600FB4FFE /* PBXTargetDependency */,
+			);
+			name = "MIDI StudioUITests";
+			packageProductDependencies = (
+			);
+			productName = "MIDI StudioUITests";
+			productReference = 05B664CF2E5DFE1600FB4FFE /* MIDI StudioUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05B664AB2E5DFE1500FB4FFE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					05B664B22E5DFE1500FB4FFE = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					05B664C42E5DFE1600FB4FFE = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 05B664B22E5DFE1500FB4FFE;
+					};
+					05B664CE2E5DFE1600FB4FFE = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 05B664B22E5DFE1500FB4FFE;
+					};
+				};
+			};
+			buildConfigurationList = 05B664AE2E5DFE1500FB4FFE /* Build configuration list for PBXProject "MIDI Studio" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 05B664AA2E5DFE1500FB4FFE;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0530489D2E5E2BBB004C972B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 05B664B42E5DFE1500FB4FFE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05B664B22E5DFE1500FB4FFE /* MIDI Studio */,
+				05B664C42E5DFE1600FB4FFE /* MIDI StudioTests */,
+				05B664CE2E5DFE1600FB4FFE /* MIDI StudioUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05B664B12E5DFE1500FB4FFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				054A883E2E5E0C2900B3BE0E /* Assets.xcassets in Resources */,
+				055B96BA2E5E59A6007981F2 /* Coustard-Regular.ttf in Resources */,
+				05F0118E2E6CD37400125D56 /* GoogleService-Info.plist in Resources */,
+				055B96BB2E5E59A6007981F2 /* Coustard-Black.ttf in Resources */,
+				05B664F72E5DFE6F00FB4FFE /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B664C32E5DFE1600FB4FFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B664CD2E5DFE1600FB4FFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05B664AF2E5DFE1500FB4FFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B664F82E5DFE6F00FB4FFE /* LoadingView.swift in Sources */,
+				05B664F92E5DFE6F00FB4FFE /* FeedbackSubmittedView.swift in Sources */,
+				05B664FA2E5DFE6F00FB4FFE /* PreviewView.swift in Sources */,
+				05B664FB2E5DFE6F00FB4FFE /* ExportView.swift in Sources */,
+				05B664FC2E5DFE6F00FB4FFE /* LaunchView.swift in Sources */,
+				05B664FD2E5DFE6F00FB4FFE /* FeedbackView.swift in Sources */,
+				05B664FE2E5DFE6F00FB4FFE /* MIDIFormData.swift in Sources */,
+				05B664FF2E5DFE6F00FB4FFE /* WelcomeView.swift in Sources */,
+				05B665002E5DFE6F00FB4FFE /* GenerateView.swift in Sources */,
+				05B665012E5DFE6F00FB4FFE /* MIDIStudioApp.swift in Sources */,
+				05B665022E5DFE6F00FB4FFE /* BottomTabView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B664C12E5DFE1600FB4FFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B664CB2E5DFE1600FB4FFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05B664C72E5DFE1600FB4FFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05B664B22E5DFE1500FB4FFE /* MIDI Studio */;
+			targetProxy = 05B664C62E5DFE1600FB4FFE /* PBXContainerItemProxy */;
+		};
+		05B664D12E5DFE1600FB4FFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05B664B22E5DFE1500FB4FFE /* MIDI Studio */;
+			targetProxy = 05B664D02E5DFE1600FB4FFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		05B664D72E5DFE1600FB4FFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = AZHYDGS236;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		05B664D82E5DFE1600FB4FFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = AZHYDGS236;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		05B664DA2E5DFE1600FB4FFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AZHYDGS236;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "MIDI Studio";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evane.midi-studio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		05B664DB2E5DFE1600FB4FFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AZHYDGS236;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "MIDI Studio";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evane.midi-studio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		05B664DD2E5DFE1600FB4FFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AZHYDGS236;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EvanE.MIDI-StudioTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MIDI Studio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MIDI Studio";
+			};
+			name = Debug;
+		};
+		05B664DE2E5DFE1600FB4FFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AZHYDGS236;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EvanE.MIDI-StudioTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MIDI Studio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MIDI Studio";
+			};
+			name = Release;
+		};
+		05B664E02E5DFE1600FB4FFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AZHYDGS236;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EvanE.MIDI-StudioUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "MIDI Studio";
+			};
+			name = Debug;
+		};
+		05B664E12E5DFE1600FB4FFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AZHYDGS236;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "EvanE.MIDI-StudioUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "MIDI Studio";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05B664AE2E5DFE1500FB4FFE /* Build configuration list for PBXProject "MIDI Studio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B664D72E5DFE1600FB4FFE /* Debug */,
+				05B664D82E5DFE1600FB4FFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B664D92E5DFE1600FB4FFE /* Build configuration list for PBXNativeTarget "MIDI Studio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B664DA2E5DFE1600FB4FFE /* Debug */,
+				05B664DB2E5DFE1600FB4FFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B664DC2E5DFE1600FB4FFE /* Build configuration list for PBXNativeTarget "MIDI StudioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B664DD2E5DFE1600FB4FFE /* Debug */,
+				05B664DE2E5DFE1600FB4FFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B664DF2E5DFE1600FB4FFE /* Build configuration list for PBXNativeTarget "MIDI StudioUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B664E02E5DFE1600FB4FFE /* Debug */,
+				05B664E12E5DFE1600FB4FFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0530489D2E5E2BBB004C972B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		05041F432E6B6DDA00F38D06 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0530489D2E5E2BBB004C972B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		0530489E2E5E2BBB004C972B /* FirebaseAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0530489D2E5E2BBB004C972B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAI;
+		};
+		053048A02E5E2BBB004C972B /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0530489D2E5E2BBB004C972B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		053048A22E5E2BBB004C972B /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0530489D2E5E2BBB004C972B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		053048A42E5E2BBB004C972B /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0530489D2E5E2BBB004C972B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 05B664AB2E5DFE1500FB4FFE /* Project object */;
+}

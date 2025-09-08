@@ -1,0 +1,12 @@
+{
+  "name": "functions",
+  "description": "Firebase Cloud Functions for MIDI Studio Orchestra backend.",
+  "dependencies": {
+    "firebase-functions": "^5.1.0",
+    "firebase-admin": "^11.0.0",
+    "axios": "^1.6.0"
+  },
+  "engines": {
+    "node": "20"
+  }
+}
