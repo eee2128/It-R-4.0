@@ -104,16 +104,25 @@ exports.startOrchestration = functions.https.onRequest(async (req, res) => {
 
   } catch (error) {
     console.error("Orchestration failed", error);
-    // Update Firestore with error status
+    let errorMessage = "An unexpected error occurred.";
+
+    if (error.response) {
+        console.error('Error Response:', error.response.data);
+        const errorData = error.response.data;
+        if (errorData && errorData.error && errorData.error.message) {
+            errorMessage = `[${error.response.status}] ${errorData.error.message}`;
+        } else {
+            errorMessage = `[${error.response.status}] ${JSON.stringify(errorData)}`;
+        }
+    } else {
+        errorMessage = error.message;
+    }
+
     await docRef.update({
         status: "Error during generation. Please try again.",
-        error: error.message,
+        error: errorMessage,
     });
-    if (error.response) {
-      console.error('Error Response:', error.response.data.error.message);
-      console.error('Error Status:', error.response.status);
-      console.error('Error Headers:', error.response.headers);
-    }
-    return res.status(500).send({ message: "Internal Server Error" });
+
+    return res.status(500).send({ message: "Internal Server Error", detail: errorMessage });
   }
 });
