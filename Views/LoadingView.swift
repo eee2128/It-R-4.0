@@ -85,7 +85,7 @@ struct LoadingView: View {
         statusText = "Orchestration started. Waiting for file..."
         
         let db = Firestore.firestore()
-        let docRef = db.collection("users").document(userId).collection("generations").document("latest")
+        let docRef = db.collection("users").document(userId).collection("orchestraStatus").document("latest")
 
         listener = docRef.addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
