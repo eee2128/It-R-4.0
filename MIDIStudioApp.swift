@@ -14,16 +14,18 @@ import UIKit
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         FirebaseApp.configure()
-        #if DEBUG
-        // Point Firestore and Auth to local emulators
-        let firestore = Firestore.firestore()
-        let settings = firestore.settings
-        settings.host = "localhost:8080"
-        settings.cacheSettings = MemoryCacheSettings()
-        settings.isSSLEnabled = false
-        firestore.settings = settings
-        Auth.auth().useEmulator(withHost: "localhost", port: 9099)
-        #endif
+
+        // Comment out or remove emulator settings for production
+        // print("[DEBUG] Using Firebase Auth emulator at localhost:9099")
+        // Auth.auth().useEmulator(withHost:"localhost", port: 9099)
+        
+        // print("[DEBUG] Using Firestore emulator at localhost:8080")
+        // let settings = Firestore.firestore().settings
+        // settings.host = "localhost:8080"
+        // settings.isPersistenceEnabled = false
+        // settings.isSSLEnabled = false
+        // Firestore.firestore().settings = settings
+        
         return true
     }
 }
@@ -47,11 +49,7 @@ struct MIDIStudioApp: App {
                 .environmentObject(feedbackFormData)
                 .preferredColorScheme(.light) // Force light mode to match design
                 .onAppear {
-                    #if DEBUG
-                    print("[DEBUG] Using Firebase Auth emulator at localhost:9099")
-                    #else
                     print("[PRODUCTION] Using live Firebase Auth service")
-                    #endif
                     if let user = Auth.auth().currentUser {
                         appState.userId = user.uid
                     } else {

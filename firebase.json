@@ -2,9 +2,7 @@
   "functions": {
     "source": "functions"
   },
-  "storage": [
-    {
-      "rules": "storage.rules"
-    }
-  ]
+  "storage": {
+    "rules": "storage.rules"
+  }
 }
