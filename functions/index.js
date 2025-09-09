@@ -20,7 +20,7 @@ exports.startOrchestration = functions.runWith(runtimeOpts).https.onRequest(asyn
   }
 
   const { userId, key, scale, tempo, mood, genre, phraseType, voiceType, octaveRange, midiLength, beat } = req.body;
-  const apiKey = "AIzaSyAxpVnqIKJMwUpoPKfCK6ZPiChU1egCC_4"; // Your Gemini API Key
+  const apiKey = "AIzaSyAiP05GIYS1Pg0Ljs3zFGqCMzphV5Z-qck"; // Your Gemini API Key
 
   if (!userId) {
     console.error("Orchestration failed: Missing userId");
