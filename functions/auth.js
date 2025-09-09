@@ -1,19 +1,23 @@
-const { auth } = require('google-auth-library');
+const { GoogleAuth } = require('google-auth-library');
 
 /**
  * Gets an access token for the Google Cloud AI Platform API.
  */
 async function getAccessToken() {
-  const client = auth.fromJSON({
-    // Use the default service account key for Cloud Functions
-    type: 'service_account',
-    project_id: process.env.GCLOUD_PROJECT,
-    private_key: '-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n', // This will be replaced by the runtime
-    client_email: `${process.env.GCLOUD_PROJECT}@appspot.gserviceaccount.com`
+  console.log('Requesting Google Cloud access token...');
+  const auth = new GoogleAuth({
+    scopes: 'https://www.googleapis.com/auth/cloud-platform'
   });
 
-  const accessToken = await client.getAccessToken();
-  return accessToken.token;
+  try {
+    const client = await auth.getClient();
+    const accessToken = await client.getAccessToken();
+    console.log('Successfully obtained access token.');
+    return accessToken.token;
+  } catch (error) {
+    console.error('Failed to get access token:', error);
+    throw new Error('Could not get Google Cloud access token. Please check the function logs.');
+  }
 }
 
 module.exports = { getAccessToken };
