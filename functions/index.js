@@ -3,6 +3,7 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const axios = require("axios");
 const FormData = require("form-data");
+const { getAccessToken } = require('./auth'); // Helper for auth
 
 admin.initializeApp();
 
@@ -28,11 +29,22 @@ exports.startOrchestration = functions.https.onRequest(async (req, res) => {
     await docRef.set({ status: "Composing musical information...", createdAt: admin.firestore.FieldValue.serverTimestamp() });
 
     // 2. Call the AI service to get musical parameters
-    const aiServiceUrl = "https://aiplatform.googleapis.com"; 
+    const accessToken = await getAccessToken();
+    const aiServiceUrl = `https://us-central1-aiplatform.googleapis.com/v1/projects/midi-studio/locations/us-central1/publishers/google/models/gemini-1.5-flash-001:generateContent`;
+
+    const prompt = `Given the following musical parameters: Key: ${key}, Scale: ${scale}, Tempo: ${tempo} BPM, Mood: ${mood}, Genre: ${genre}, Phrase Type: ${phraseType}, Voice Type: ${voiceType}, Octave Range: ${octaveRange}, MIDI Length: ${midiLength} seconds, Beat: ${beat}, generate a corresponding musical composition.`;
+
     const aiResponse = await axios.post(aiServiceUrl, {
-        key, scale, tempo, mood, genre, phraseType, voiceType, octaveRange, midiLength, beat
+      "contents": [{"parts":[{"text": prompt}]}],
+    }, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
+      }
     });
-    const musicalData = aiResponse.data;
+
+    // Note: The response structure might be complex. Adjust this line based on the actual API response.
+    const musicalData = aiResponse.data.candidates[0].content.parts[0].text; 
 
     // 3. Generate MIDI with MusicVAE (Magenta)
     await docRef.update({ status: "Receiving musical information..." });
@@ -98,7 +110,7 @@ exports.startOrchestration = functions.https.onRequest(async (req, res) => {
         error: error.message,
     });
     if (error.response) {
-      console.error('Error Response:', error.response.data);
+      console.error('Error Response:', error.response.data.error.message);
       console.error('Error Status:', error.response.status);
       console.error('Error Headers:', error.response.headers);
     }

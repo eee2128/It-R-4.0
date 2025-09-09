@@ -14,7 +14,18 @@ struct LoadingView: View {
     
     @State private var statusText: String = "Sending parameters..."
     @State private var rotationAngle: Double = 0
+    @State private var progress: Double = 0.0
     @State private var listener: ListenerRegistration?
+
+    private let progressMap: [String: Double] = [
+        "Composing musical information...": 0.1,
+        "Receiving musical information...": 0.3,
+        "Generating MIDI file...": 0.5,
+        "Saving MIDI file...": 0.6,
+        "Rendering audio...": 0.7,
+        "Saving audio...": 0.8,
+        "Loading preview...": 0.9,
+    ]
 
     var body: some View {
         ZStack {
@@ -40,6 +51,12 @@ struct LoadingView: View {
                                 .repeatForever(autoreverses: false),
                             value: rotationAngle
                         )
+
+                    // Progress Bar
+                    ProgressView(value: progress)
+                        .progressViewStyle(LinearProgressViewStyle())
+                        .tint(Color("AccentColor")) // Use the AccentColor
+                        .frame(width: 250)
                     
                     // Loading Text and Divider
                     VStack(spacing: 8) {
@@ -83,7 +100,8 @@ struct LoadingView: View {
         }
         
         statusText = "Orchestration started. Waiting for file..."
-        
+        progress = 0.05 // Initial progress
+
         let db = Firestore.firestore()
         let docRef = db.collection("users").document(userId).collection("orchestraStatus").document("latest")
 
@@ -91,33 +109,42 @@ struct LoadingView: View {
             guard let document = documentSnapshot else {
                 print("Error fetching document: \(error!)")
                 statusText = "Error fetching result. Please try again."
+                progress = 0
                 return
             }
             
             guard let data = document.data() else {
                 print("Document data was empty.")
-                // This is normal while the function is running
                 statusText = "Generation in progress..."
                 return
             }
             
-            // Check for the MP3 URL
+            // Update status and progress
+            if let status = data["status"] as? String {
+                self.statusText = status
+                if let progressValue = progressMap[status] {
+                    withAnimation {
+                        self.progress = progressValue
+                    }
+                }
+            }
+            
+            // Check for the final MP3 URL
             if let mp3Url = data["mp3Url"] as? String {
                 print("Received MP3 URL: \(mp3Url)")
                 midiFormData.mp3Url = mp3Url
                 
-                // Invalidate the listener
+                withAnimation {
+                    self.progress = 1.0
+                }
+                
                 cleanupListener()
                 
-                // Navigate to the preview screen
                 statusText = "File ready. Loading preview..."
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { 
                     appState.currentTab = .preview
                     appState.navigateTo(.preview)
                 }
-            } else if let status = data["status"] as? String {
-                // Optional: Update status text based on backend progress
-                statusText = status
             }
         }
     }
@@ -134,7 +161,6 @@ struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
         let appState = AppState()
         let midiFormData = MIDIFormData()
-        // Simulate a logged-in user for preview
         appState.userId = "previewUser"
         
         return LoadingView()
