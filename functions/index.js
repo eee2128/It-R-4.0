@@ -61,7 +61,7 @@ exports.startOrchestration = functions.runWith(runtimeOpts).https.onRequest(asyn
         headers: { 'Content-Type': 'application/json' }
     });
 
-    console.log("Step 3a: Received JSON response from MusicVAE:", musicVaeResponse.data);
+    console.log("Step 3a: Received JSON response from MusicVAE:", JSON.stringify(musicVaeResponse.data));
     const generatedMidiUrl = musicVaeResponse.data.midi_url;
 
     if (!generatedMidiUrl) {
