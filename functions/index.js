@@ -28,7 +28,7 @@ exports.startOrchestration = functions.runWith(runtimeOpts).https.onRequest(asyn
   }
 
   console.log(`Starting orchestration for user: ${userId}`);
-  const docRef = db.collection("users").document(userId).collection("orchestraStatus").document("latest");
+  const docRef = db.collection("users").doc(userId).collection("orchestraStatus").doc("latest");
 
   try {
     // 1. Initial status
