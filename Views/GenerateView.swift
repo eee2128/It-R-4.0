@@ -240,29 +240,13 @@ struct GenerateView: View {
     }
     
     func triggerOrchestraGeneration() {
-        guard midiFormData.isValid else {
-            print("Form data is not valid.")
-            return
-        }
-
-        let url = URL(string: "https://us-central1-midi-studio.cloudfunctions.net/startOrchestration")!
+        print("--- Attempting network request to test server ---")
+        let url = URL(string: "https://httpbin.org/post")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let body: [String: Any] = [
-            "key": midiFormData.key,
-            "scale": midiFormData.scale,
-            "beat": midiFormData.beat,
-            "tempo": midiFormData.tempo,
-            "mood": midiFormData.mood,
-            "genre": midiFormData.genre,
-            "phraseType": midiFormData.phraseType,
-            "voiceType": midiFormData.voiceType,
-            "octaveRange": midiFormData.octaveRange,
-            "midiLength": midiFormData.midiLength,
-            "userId": appState.userId ?? "anonymous"
-        ]
+        let body: [String: Any] = ["test": "data", "userId": appState.userId ?? "anonymous"]
 
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: body)
@@ -272,19 +256,22 @@ struct GenerateView: View {
         }
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("URLSession task failed with error: \(error)")
-                return
-            }
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                print("HTTP Response Status Code: \(httpResponse.statusCode)")
-                if (200...299).contains(httpResponse.statusCode) {
-                    print("Orchestration started successfully.")
-                } else {
-                    print("Received non-success status code.")
+            // Use DispatchQueue.main.async to print to the console from the background thread
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("URLSession task failed with error: \(error)")
+                    return
+                }
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("HTTP Response Status Code: \(httpResponse.statusCode)")
+                    if (200...299).contains(httpResponse.statusCode) {
+                        print("Test request was successful.")
+                    } else {
+                        print("Received non-success status code from test server.")
+                    }
                     if let data = data, let responseBody = String(data: data, encoding: .utf8) {
-                        print("Response Body: \(responseBody)")
+                        print("Test Server Response Body: \(responseBody)")
                     }
                 }
             }
