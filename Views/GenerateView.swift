@@ -240,11 +240,16 @@ struct GenerateView: View {
     }
     
     func triggerOrchestraGeneration() {
-        guard midiFormData.isValid else { return }
-        let url = URL(string: "https://us-central1-midi-studio.cloudfunctions.net/startOrchestration")! // Corrected function name
+        guard midiFormData.isValid else {
+            print("Form data is not valid.")
+            return
+        }
+
+        let url = URL(string: "https://us-central1-midi-studio.cloudfunctions.net/startOrchestration")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
         let body: [String: Any] = [
             "key": midiFormData.key,
             "scale": midiFormData.scale,
@@ -256,11 +261,33 @@ struct GenerateView: View {
             "voiceType": midiFormData.voiceType,
             "octaveRange": midiFormData.octaveRange,
             "midiLength": midiFormData.midiLength,
-            "userId": appState.userId ?? "anonymous" // Use actual user ID if available
+            "userId": appState.userId ?? "anonymous"
         ]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: body)
+        } catch {
+            print("Failed to serialize JSON body: \(error)")
+            return
+        }
+
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            // Optionally handle response or errors here
+            if let error = error {
+                print("URLSession task failed with error: \(error)")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                print("HTTP Response Status Code: \(httpResponse.statusCode)")
+                if (200...299).contains(httpResponse.statusCode) {
+                    print("Orchestration started successfully.")
+                } else {
+                    print("Received non-success status code.")
+                    if let data = data, let responseBody = String(data: data, encoding: .utf8) {
+                        print("Response Body: \(responseBody)")
+                    }
+                }
+            }
         }
         task.resume()
     }
