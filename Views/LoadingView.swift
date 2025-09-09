@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct LoadingView: View {
     @EnvironmentObject var appState: AppState
-    @State private var progress: Double = 0.14
-    @State private var rotationAngle: Double = 0
+    @EnvironmentObject var midiFormData: MIDIFormData
     
+    @State private var statusText: String = "Sending parameters..."
+    @State private var rotationAngle: Double = 0
+    @State private var listener: ListenerRegistration?
+
     var body: some View {
         ZStack {
             Color.white
@@ -48,37 +52,13 @@ struct LoadingView: View {
                             .frame(width: 300, height: 1)
                     }
                     
-                    // Progress Bar
-                    VStack(spacing: 16) {
-                        // Progress Bar
-                        ZStack(alignment: .leading) {
-                            // Background
-                            RoundedRectangle(cornerRadius: 3)
-                                .fill(Color(hex: "D9D9D9"))
-                                .frame(width: 300, height: 10)
-                            
-                            // Progress Fill
-                            RoundedRectangle(cornerRadius: 3)
-                                .fill(Color(hex: "79BEFF"))
-                                .frame(width: 300 * progress, height: 10)
-                                .animation(.easeOut(duration: 0.3), value: progress)
-                        }
-                        
-                        // Sending parameters text
-                        Text("Sending parameters...")
-                            .font(.system(size: 13, weight: .regular))
-                            .foregroundColor(.black)
-                            .frame(maxWidth: 300, alignment: .leading) // Align to the leading edge of the 300 width
+                    // Status Text
+                    Text(statusText)
+                        .font(.system(size: 13, weight: .regular))
+                        .foregroundColor(.black)
+                        .frame(maxWidth: 300, alignment: .center)
+                        .padding(.top, 16)
 
-                        // Percentage
-                        HStack {
-                            Spacer()
-                            Text("\(Int(progress * 100))%")
-                                .font(.system(size: 13, weight: .regular))
-                                .foregroundColor(.black)
-                        }
-                        .frame(width: 300)
-                    }
                 }
                 .padding(.horizontal, 40)
                 
@@ -89,45 +69,76 @@ struct LoadingView: View {
                 BottomTabView()
             }
         }
-        .onAppear {
-            startAnimations()
-            simulateProgress()
-        }
+        .onAppear(perform: setupListener)
+        .onDisappear(perform: cleanupListener)
     }
     
-    private func startAnimations() {
-        // Start spinner rotation
+    private func setupListener() {
+        // Start spinner animation
         rotationAngle = 360
-    }
-    
-    private func simulateProgress() {
-        // Simulate progress from 14% to 100%
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { timer in
-            withAnimation(.easeOut(duration: 0.3)) {
-                progress += Double.random(in: 0.05...0.20)
-                
-                if progress >= 1.0 {
-                    progress = 1.0
-                    timer.invalidate()
-                    
-                    // Navigate to preview after completion
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        appState.currentTab = .preview
-                        appState.navigateTo(.preview)
-                    }
-                }
-            }
+        
+        guard let userId = appState.userId else {
+            statusText = "Error: User not logged in."
+            return
         }
         
-        // Ensure timer runs
-        RunLoop.current.add(timer, forMode: .common)
+        statusText = "Orchestration started. Waiting for file..."
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(userId).collection("generations").document("latest")
+
+        listener = docRef.addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                statusText = "Error fetching result. Please try again."
+                return
+            }
+            
+            guard let data = document.data() else {
+                print("Document data was empty.")
+                // This is normal while the function is running
+                statusText = "Generation in progress..."
+                return
+            }
+            
+            // Check for the MP3 URL
+            if let mp3Url = data["mp3Url"] as? String {
+                print("Received MP3 URL: \(mp3Url)")
+                midiFormData.mp3Url = mp3Url
+                
+                // Invalidate the listener
+                cleanupListener()
+                
+                // Navigate to the preview screen
+                statusText = "File ready. Loading preview..."
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { 
+                    appState.currentTab = .preview
+                    appState.navigateTo(.preview)
+                }
+            } else if let status = data["status"] as? String {
+                // Optional: Update status text based on backend progress
+                statusText = status
+            }
+        }
+    }
+
+    private func cleanupListener() {
+        listener?.remove()
+        listener = nil
+        print("Firestore listener removed.")
     }
 }
 
 // MARK: - Preview
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingView()
-            .environmentObject(AppState())
+        let appState = AppState()
+        let midiFormData = MIDIFormData()
+        // Simulate a logged-in user for preview
+        appState.userId = "previewUser"
+        
+        return LoadingView()
+            .environmentObject(appState)
+            .environmentObject(midiFormData)
     }
 }
