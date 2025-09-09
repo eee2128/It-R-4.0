@@ -54,13 +54,27 @@ exports.startOrchestration = functions.runWith(runtimeOpts).https.onRequest(asyn
     // 3. Generate MIDI with MusicVAE (Magenta)
     console.log("Step 3: Calling MusicVAE service.");
     await docRef.update({ status: "Receiving musical information..." });
-    const musicVaeUrl = "https://magenta-service-66417736961.us-central1.run.app/generate"; 
+    const musicVaeUrl = "https://magenta-service-66417736961.us-central1.run.app/generate";
+    
+    // Step 3a: Get the URL for the generated MIDI file
     const musicVaeResponse = await axios.post(musicVaeUrl, { "text_input": musicalData }, {
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' }
+    });
+
+    console.log("Step 3a: Received JSON response from MusicVAE:", musicVaeResponse.data);
+    const generatedMidiUrl = musicVaeResponse.data.midi_url;
+
+    if (!generatedMidiUrl) {
+        throw new Error("MusicVAE service did not return a MIDI URL.");
+    }
+
+    // Step 3b: Download the MIDI file from the provided URL
+    console.log(`Step 3b: Downloading MIDI file from ${generatedMidiUrl}`);
+    const midiDownloadResponse = await axios.get(generatedMidiUrl, {
         responseType: 'arraybuffer'
     });
-    const midiData = musicVaeResponse.data;
-    console.log("Step 3a: Received MIDI data from MusicVAE.");
+    const midiData = midiDownloadResponse.data;
+    console.log("Step 3c: Received MIDI data from MusicVAE URL.");
     await docRef.update({ status: "Generating MIDI file..." });
 
     // 4. Save MIDI to Firebase Storage
