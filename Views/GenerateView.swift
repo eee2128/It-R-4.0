@@ -240,13 +240,17 @@ struct GenerateView: View {
     }
     
     func triggerOrchestraGeneration() {
-        print("--- Attempting network request to test server ---")
-        let url = URL(string: "https://httpbin.org/post")!
+        print("--- Attempting network request to Firebase function ---")
+        let url = URL(string: "https://us-central1-midi-studio.cloudfunctions.net/startOrchestration")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let body: [String: Any] = ["test": "data", "userId": appState.userId ?? "anonymous"]
+        let body: [String: Any] = [
+            "key": midiFormData.key,
+            "scale": midiFormData.scale,
+            "userId": appState.userId ?? "anonymous"
+        ]
 
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: body)
@@ -266,12 +270,12 @@ struct GenerateView: View {
                 if let httpResponse = response as? HTTPURLResponse {
                     print("HTTP Response Status Code: \(httpResponse.statusCode)")
                     if (200...299).contains(httpResponse.statusCode) {
-                        print("Test request was successful.")
+                        print("Firebase function request was successful.")
                     } else {
-                        print("Received non-success status code from test server.")
+                        print("Received non-success status code from Firebase function.")
                     }
                     if let data = data, let responseBody = String(data: data, encoding: .utf8) {
-                        print("Test Server Response Body: \(responseBody)")
+                        print("Firebase Function Response Body: \(responseBody)")
                     }
                 }
             }
