@@ -54,8 +54,9 @@ exports.startOrchestration = functions.runWith(runtimeOpts).https.onRequest(asyn
     // 3. Generate MIDI with MusicVAE (Magenta)
     console.log("Step 3: Calling MusicVAE service.");
     await docRef.update({ status: "Receiving musical information..." });
-    const musicVaeUrl = "https://magenta-service-66417736961.us-central1.run.app"; 
-    const musicVaeResponse = await axios.post(musicVaeUrl, musicalData, {
+    const musicVaeUrl = "https://magenta-service-66417736961.us-central1.run.app/generate"; 
+    const musicVaeResponse = await axios.post(musicVaeUrl, { "text_input": musicalData }, {
+        headers: { 'Content-Type': 'application/json' },
         responseType: 'arraybuffer'
     });
     const midiData = musicVaeResponse.data;
@@ -73,7 +74,7 @@ exports.startOrchestration = functions.runWith(runtimeOpts).https.onRequest(asyn
     // 5. Render MIDI to MP3 using the render-service
     console.log("Step 5: Calling render service for MP3.");
     await docRef.update({ status: "Rendering audio..." });
-    const renderServiceUrl = "https://render-service-66417736961.us-central1.run.app"; 
+    const renderServiceUrl = "https://render-service-66417736961.us-central1.run.app/render"; 
     const form = new FormData();
     form.append('midi_file', midiData, {
         filename: midiFileName,
