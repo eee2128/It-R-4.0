@@ -1,3 +1,4 @@
+
 //
 //  MIDIFormData.swift
 //  MIDI Studio
@@ -10,17 +11,17 @@ import FirebaseFirestore
 
 // MARK: - Main Form Data Model
 class MIDIFormData: ObservableObject {
-    @Published var key: String = ""
-    @Published var scale: String = ""
-    @Published var beat: String = ""
-    @Published var tempo: Int = 100
+    @Published var key: String = "C"
+    @Published var scale: String = "major"
+    @Published var beat: String = "4/4"
+    @Published var tempo: Int = 120
     @Published var tempoEnabled: Bool = false
-    @Published var mood: String = ""
-    @Published var genre: String = ""
-    @Published var phraseType: String = ""
-    @Published var voiceType: String = ""
+    @Published var mood: String = "N/A"
+    @Published var genre: String = "N/A"
+    @Published var phraseType: String = "N/A"
+    @Published var voiceType: String = "N/A"
     @Published var octaveRange: [String] = []
-    @Published var midiLength: String = ""
+    @Published var midiLength: String = "N/A"
     @Published var isOrchestraReady: Bool = false
     @Published var mp3Url: String? = nil
     @Published var midiUrl: String? = nil
@@ -29,17 +30,17 @@ class MIDIFormData: ObservableObject {
 
     // MARK: - Reset Form
     func reset() {
-        key = ""
-        scale = ""
-        beat = ""
-        tempo = 100
+        key = "C"
+        scale = "major"
+        beat = "4/4"
+        tempo = 120
         tempoEnabled = false
-        mood = ""
-        genre = ""
-        phraseType = ""
-        voiceType = ""
+        mood = "N/A"
+        genre = "N/A"
+        phraseType = "N/A"
+        voiceType = "N/A"
         octaveRange = []
-        midiLength = ""
+        midiLength = "N/A"
     }
     
     // MARK: - Validation
